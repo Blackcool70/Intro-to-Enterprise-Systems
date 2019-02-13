@@ -1,4 +1,4 @@
-/* This program takes a HEX String from commands line 
+/* This program takes a HEX String from the command line 
    and converts it to binary
    then it splits the binary form into specific number of bits
    to make up the virtual memory and finding RX,SX,PX,BX.
