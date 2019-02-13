@@ -38,24 +38,24 @@ static String Reverse(String str){
 
     String hex_1="";
     
-  //Takes in argument from the command-line
+  //Takes in argument from the command-line, argument should be like (with quotes) "AA BB CC DD EE FF 11 22"
 	for(int i = 0; i<args.length; i++){
 	hex_1 = args[i];
 	}
     
+    //Takes out all the spaces from the string provided in the command line.
     String hex = hex_1.replaceAll(" ",""); 
 
+    //Converts the HEX provided to Binary
     String bin = hexToBin(hex);
-
-
+	  
+	  
+    //Splits the binary into the needed format. RX: 33 bits, SX: 11 bits, PX: 8 bits, BX: 12 bits.
     String RX = bin.substring(bin.length()-33);
-
 
     String SX = bin.substring(20,31);
 
-
     String PX = bin.substring(12,20);
-
 
     String BX = bin.substring(0,12);
 
@@ -64,6 +64,9 @@ static String Reverse(String str){
     System.out.println("Input address: " + hex_1);
     System.out.println("");
 
+    /*From now on, I change back to Hex, reverse the letters,
+     put spaces every 2 HEX characters and reverse back and print them off
+     with upper cases. */
     RX = BinToHex(RX);
     RX = Reverse(RX);
     RX = RX.replaceAll("..(?!$)", "$0 ");
